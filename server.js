@@ -28,7 +28,7 @@ app.use('/*', (req, res) => {
     return res.sendFile(path.join(__dirname, './client/build'))
 })
 
-if( true )
+if( process.env.NODE_ENV === 'production')
 {
     app.use(express.static('./client/build'))
 
