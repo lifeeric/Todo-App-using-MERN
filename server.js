@@ -28,7 +28,7 @@ connection.on('error', err => console.log(`Error: ${err}`))
 app.use('/api/newtask', require('./routes/api/newtask'));
 
 // accessing direct url like exampel.com/user
-app.use('/*', (req, res) => { 
+app.use('/', (req, res) => { 
     return res.sendFile(path.join(__dirname, './client/build/index.html')); 
 });
 
