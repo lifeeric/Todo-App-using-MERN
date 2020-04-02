@@ -7,6 +7,8 @@ require('dotenv').config();
 // App
 const app = express();
 
+app.use(express.static('./client/build'))
+
 // Middle for URL parser
 app.use(express.json());
 app.use(cors());
@@ -25,18 +27,13 @@ connection.on('error', err => console.log(`Error: ${err}`))
 // Routers
 app.use('/api/newtask', require('./routes/api/newtask'));
 
-if( process.env.NODE_ENV === 'production')
-{
-    app.use(express.static('./client/build'))
-
-    // accessing direct url like exampel.com/user
-    app.use('/*', (req, res) => { 
-        return res.sendFile(path.join(__dirname, './client/build/index.html')); 
-    });
-}
+// accessing direct url like exampel.com/user
+app.use('/*', (req, res) => { 
+    return res.sendFile(path.join(__dirname, './client/build/index.html')); 
+});
 
 // PORT
-const PORT = process.env.PORT | 5000;
+const PORT = process.env.PORT | 5001;
 
 // Listening
 app.listen(PORT, () => `Server is running on ${PORT}`)
