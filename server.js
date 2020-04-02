@@ -24,9 +24,6 @@ connection.on('error', err => console.log(`Error: ${err}`))
 
 // Routers
 app.use('/api/newtask', require('./routes/api/newtask'));
-app.use('/*', (req, res) => {
-    return res.sendFile(path.join(__dirname, './client/build'))
-})
 
 if( process.env.NODE_ENV === 'production')
 {
