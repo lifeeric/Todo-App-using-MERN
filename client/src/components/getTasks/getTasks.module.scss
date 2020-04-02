@@ -1,0 +1,41 @@
+.container {
+    width: 400px;
+    margin: 60px auto;
+}
+
+.taskList {
+    border: 3px solid #3b3a3acf;
+    font-size: 14px;
+    margin: 20px auto;
+    box-shadow: 2px 4px 5px #888;
+
+    // p
+    & p {
+        text-align: left;
+        padding-left: 10px;
+        width: 95%;
+        
+        & .action {
+            float: right;
+            padding-right: -20px;
+        }
+    }
+
+    .__edit, .__delete {
+        border: transparent;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .__edit {
+        color: #5E00A5;
+    }
+
+    .__delete {
+        color: #FAC60F;
+    }
+
+}
