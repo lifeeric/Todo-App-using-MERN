@@ -9,8 +9,8 @@ const app = express();
 
 
 // Middle for URL parser
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 
 const uri = process.env.MONGO_URI;
