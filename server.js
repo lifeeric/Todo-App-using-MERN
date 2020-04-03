@@ -2,15 +2,18 @@ const express = require('express');
 const cors    = require('cors');
 const mongoose= require('mongoose');
 const path    = require('path');
+
 require('dotenv').config();
 
 // App
 const app = express();
 
-
-// Middle for URL parser
+// Middleware
 app.use(cors());
+
+// Body Parser, MW
 app.use(express.json());
+// app.use(express.urlencoded({extended: false}));
 
 
 // mongoose
