@@ -23,15 +23,17 @@ connection.on('error', err => console.log(`Error: ${err}`))
 // Routers
 app.use('/api/newtask', require('./routes/api/newtask'));
 
-if ( process.env.NODE_ENV === 'production' )
-{
-    app.use(express.static('./client/build'));
 
-    //access direct url like /abc
-    app.use('/*', (req, res) => {
-        return res.sendFile(path.join(__dirname, './client/build/index.html'));
-    })
+if( process.env.NODE_ENV === 'production')
+{
+    app.use(express.static('./client/build'))
+
+    // accessing direct url like exampel.com/user
+    app.use('/*', (req, res) => { 
+        return res.sendFile(path.join(__dirname, './client/build/index.html')); 
+    });
 }
+
 // PORT
 const PORT = process.env.PORT | 5001;
 
