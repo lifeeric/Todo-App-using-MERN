@@ -13,12 +13,14 @@ app.use(cors());
 app.use(express.json());
 
 
+// mongoose
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
-connection.once('open', () => console.log('MongoDB established!'))
+connection.once('open', () => console.log('MongoDB esatablished!'));
 connection.on('error', err => console.log(`Error: ${err}`))
+
 
 // Routers
 app.use('/api/newtask', require('./routes/api/newtask'));
