@@ -35,8 +35,8 @@ if( process.env.NODE_ENV === 'production')
         return res.sendFile(path.join(__dirname, './client/build/index.html')); 
     });
 }
-// PORT
-const PORT = process.env.PORT | 5001;
 
-// Listening
+
+// PORTS
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
