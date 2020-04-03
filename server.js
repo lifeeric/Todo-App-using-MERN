@@ -26,20 +26,17 @@ connection.on('error', err => console.log(`Error: ${err}`))
 // Routers
 app.use('/api/newtask', require('./routes/api/newtask'));
 
-if ( process.env.NODE_ENV === 'production' )
+if( process.env.NODE_ENV === 'production')
 {
-    app.use(express.static('./client/build'));
+    app.use(express.static('./client/build'))
 
-    //access direct url like /abc
-    app.use('/*', (req, res) => {
-        return res.sendFile(path.join(__dirname, './client/build/index.html'));
-    })
+    // accessing direct url like exampel.com/user
+    app.use('/*', (req, res) => { 
+        return res.sendFile(path.join(__dirname, './client/build/index.html')); 
+    });
 }
 // PORT
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT | 5001;
 
 // Listening
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
-
-
-
