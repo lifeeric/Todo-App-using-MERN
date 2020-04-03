@@ -28,7 +28,7 @@ app.use('/api/newtask', require('./routes/api/newtask'));
 
 if ( process.env.NODE_ENV === 'production' )
 {
-    app.use(express.static('./client/build/index.html'));
+    app.use(express.static('./client/build'));
 
     //access direct url like /abc
     app.use('/*', (req, res) => {
@@ -39,7 +39,7 @@ if ( process.env.NODE_ENV === 'production' )
 const PORT = process.env.PORT | 5001;
 
 // Listening
-app.listen(PORT, () => `Server is running on ${PORT}`)
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 
 
 
